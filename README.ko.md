@@ -1,3 +1,5 @@
+<img src="icon.png" width="64" align="left" alt="">
+
 # R QR Reader for Haiku OS
 
 [English](README.md)
