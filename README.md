@@ -14,7 +14,20 @@ Reads QR codes with the webcam. Hold a code up to the camera; a web address offe
 
 Haiku (x86 or x86_64) and a UVC webcam. Build it on the machine you are going to run it on — no cross-compiler needed.
 
-## Install
+Also builds and runs on arm64, cross-compiled against the Haiku kits; it needs nothing outside them.
+
+## Install with pkgman
+
+| Haiku | Commands |
+| --- | --- |
+| 32-bit x86 (x86_gcc2) | `pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2`<br>`pkgman install rqrreader` |
+| arm64 | `pkgman add-repo http://pkgman.rainygirl.com/arm64`<br>`pkgman install rqrreader` |
+
+Then start **R QR Reader** from Deskbar -> Applications.
+
+If `pkgman add-repo` fails with `Operation not supported`, the network kit of that image has no TLS; use `http://` instead of `https://` in the address.
+
+## Install from source
 
 ```sh
 ./install.sh

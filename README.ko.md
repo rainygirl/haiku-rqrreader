@@ -14,7 +14,20 @@
 
 Haiku (x86 또는 x86_64)와 UVC 웹캠. 크로스 컴파일러가 필요 없으니 실행할 기기에서 그대로 빌드하시면 됩니다.
 
-## 설치
+arm64에서도 빌드되어 동작합니다. Haiku 키트만 사용하므로 그 밖의 의존성이 없어 크로스 컴파일로 만들었습니다.
+
+## pkgman으로 설치
+
+| Haiku | 명령 |
+| --- | --- |
+| 32비트 x86 (x86_gcc2) | `pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2`<br>`pkgman install rqrreader` |
+| arm64 | `pkgman add-repo http://pkgman.rainygirl.com/arm64`<br>`pkgman install rqrreader` |
+
+설치 후 Deskbar -> Applications에서 **R QR Reader**를 실행하세요.
+
+`pkgman add-repo`가 `Operation not supported`로 실패하면 그 이미지의 네트워크 킷에 TLS가 없는 것입니다. 주소의 `https://`를 `http://`로 바꿔 쓰세요.
+
+## 소스에서 설치
 
 ```sh
 ./install.sh
