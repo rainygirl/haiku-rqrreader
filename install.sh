@@ -59,6 +59,13 @@ if ps | grep -q "[R] QR Reader"; then
 fi
 
 cp -f "$APP" "$APPS_DIR/$APP"
+
+# Tracker reads the icon from the file's attributes, not from the resources the
+# linker wrote into the binary. mimeset is meant to copy one to the other, but
+# recent Haiku no longer sniffs ELF files, so a freshly installed app shows a
+# blank document icon until resattr does the copy.
+resattr -O -o "$APPS_DIR/$APP" "$APPS_DIR/$APP" 2>/dev/null \
+	|| echo "install.sh: resattr failed; the icon may show as a blank document" >&2
 ln -sf "$APPS_DIR/$APP" "$MENU_DIR/$APP"
 ln -sf "$APPS_DIR/$APP" "$DESKTOP_DIR/$APP"
 rm -f "$APP"
